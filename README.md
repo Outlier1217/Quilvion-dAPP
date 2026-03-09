@@ -1,409 +1,477 @@
-Quilvion-dAPP - Decentralized E-Commerce Platform
-🚀 Core Idea
-Traditional e-commerce platforms suffer from several critical issues:
+# 🛒 Quilvion-dAPP
+### Decentralized E-Commerce Platform
 
-Users must create separate accounts on every website
+A next-generation **Web3 commerce platform** where **wallet = identity**.  
+No accounts. No passwords. Just connect your wallet and start shopping.
 
-Repeated sharing of sensitive personal information
+---
 
-Increased spam, data leaks, and identity theft risks
+# 🚀 Core Idea
 
-Cumbersome login/logout processes
+Traditional e-commerce platforms suffer from multiple critical issues:
 
-Fragmented user experience across different stores
+- Users must create **separate accounts** on every website
+- Repeated sharing of **sensitive personal information**
+- Increased **spam, data leaks, and identity theft risks**
+- **Cumbersome login/logout processes**
+- Fragmented user experience across different stores
 
-Quilvion-dAPP completely revolutionizes this model by making wallet = identity.
+### 💡 Solution
 
-How It Works
-Connect Wallet = Login - No account creation, no passwords, no email verification. Just connect your Web3 wallet and you're ready to shop.
+**Quilvion-dAPP** revolutionizes this model by making:
 
-Unified Shopping Experience - Buy anything from anywhere using the same wallet. Digital products? Physical goods? All in one place.
+> **Wallet = Identity**
 
-Privacy First - Buyers only share personal information (name, address, phone) when absolutely necessary for physical delivery, and can erase it after delivery.
+Users simply connect their wallet and can interact with the entire marketplace without creating accounts.
 
-Merchants Register Once - Sellers provide their business details once, get approved by admin, and can list products immediately.
+---
 
-Built-in Security - AI-powered fraud detection, escrow for physical products, daily spending limits, and multi-sig style admin approvals for high-value transactions.
+# ⚙️ How It Works
 
-🛠️ Technology Stack
-Blockchain & Smart Contracts
-Network: SKALE Testnet (Chain ID: 324705682)
+### 1️⃣ Wallet Login
 
-Smart Contracts: Solidity ^0.8.20
 
-Framework: Hardhat
+Connect Wallet → Automatic Login
 
-Payment Standard: X402 (experimental payment protocol)
 
-Token: USDC (mock for testing)
+- No email
+- No password
+- No account creation
 
-Backend
-Framework: FastAPI (Python)
+Your **Web3 wallet becomes your identity**.
 
-AI/ML: XGBoost fraud detection model
+---
 
-Database: PostgreSQL
+### 2️⃣ Unified Shopping Experience
 
-Blockchain Interaction: Web3.py
+Users can buy anything using the same wallet:
 
-Event Listener: Custom Python listener for on-chain events
+- Digital Products
+- Physical Products
+- Services
 
-Frontend
-Framework: React + Vite
+All purchases occur within a **single decentralized ecosystem**.
 
-State Management: Redux Toolkit
+---
 
-Web3 Integration: ethers.js / Web3.js
+### 3️⃣ Privacy First
 
-Styling: Custom CSS
+Sensitive personal information (address, phone, name):
 
-AI/ML Components
-Model: XGBoost Classifier
+- Shared **only when required**
+- Used **only for delivery**
+- Can be **deleted after delivery**
 
-Features: 28 PCA-transformed features + Amount + Time
+---
 
-Output: Risk score (0-100) for transaction fraud probability
+### 4️⃣ Merchant Registration
 
-Integration: Real-time risk assessment for each order
+Merchants:
 
-📁 Project Structure
-text
+1. Register once
+2. Submit business information
+3. Get admin approval
+4. Start selling instantly
+
+---
+
+### 5️⃣ Built-in Security
+
+Security layers include:
+
+- AI fraud detection
+- Escrow payments
+- Daily spending limits
+- Admin approvals for large transactions
+- Role-based access control
+
+---
+
+# 🛠 Technology Stack
+
+## Blockchain
+
+| Component | Technology |
+|--------|-------------|
+| Network | SKALE Testnet |
+| Chain ID | 324705682 |
+| Smart Contracts | Solidity ^0.8.20 |
+| Framework | Hardhat |
+| Payment Standard | X402 |
+| Token | USDC (Mock) |
+
+---
+
+## Backend
+
+| Component | Technology |
+|--------|-------------|
+| Framework | FastAPI |
+| Language | Python |
+| Database | PostgreSQL |
+| Blockchain Interaction | Web3.py |
+| Event Listener | Python Worker |
+
+---
+
+## Frontend
+
+| Component | Technology |
+|--------|-------------|
+| Framework | React + Vite |
+| State Management | Redux Toolkit |
+| Web3 Integration | ethers.js |
+| Styling | Custom CSS |
+
+---
+
+## AI / Machine Learning
+
+| Component | Technology |
+|--------|-------------|
+| Model | XGBoost Classifier |
+| Features | 28 PCA features + Amount + Time |
+| Output | Fraud risk score (0-100) |
+| Integration | Real-time order risk analysis |
+
+---
+
+# 📁 Project Structure
+
+
 Skale-dAPP/
+
+contracts/
+├── core/
+│ └── CommerceCore.sol
 │
-├── contracts/                 # Smart Contracts
-│   ├── core/                  # Core business logic
-│   │   └── CommerceCore.sol   # Main escrow/commerce logic
-│   ├── config/                # Configuration management
-│   │   └── ConfigManager.sol  # Platform settings
-│   ├── security/               # Access control
-│   │   └── Roles.sol          # Admin/Bot roles
-│   ├── interfaces/             # Contract interfaces
-│   ├── libraries/              # Helper libraries
-│   │   └── PaymentLib.sol      # Payment processing
-│   └── mocks/                  # Test tokens
-│       └── ERC20Mock.sol       # Mock USDC
+├── config/
+│ └── ConfigManager.sol
 │
-├── backend/                    # Python Backend
-│   ├── main.py                 # FastAPI application
-│   ├── listener.py             # Blockchain event listener
-│   ├── fraud_model.pkl         # Trained XGBoost model
-│   ├── requirements.txt        # Python dependencies
-│   └── uploads/                 # Product image uploads
+├── security/
+│ └── Roles.sol
 │
-├── frontend/                   # React Frontend
-│   ├── src/
-│   │   ├── components/         # Reusable UI components
-│   │   ├── pages/              # Page components
-│   │   ├── services/           # API services
-│   │   ├── store/              # Redux store
-│   │   ├── hooks/              # Custom React hooks
-│   │   ├── abi/                # Contract ABIs
-│   │   └── assets/             # Static assets
-│   └── public/                  # Public files
+├── libraries/
+│ └── PaymentLib.sol
 │
-├── scripts/                     # Deployment scripts
-├── test/                        # Contract tests
-├── ignition/                     # Hardhat deployment modules
-├── .env                          # Environment variables
-└── hardhat.config.js             # Hardhat configuration
-💡 Smart Contract Architecture
-Key Contracts
-1. CommerceCore.sol (Main Contract)
-Order creation and management
+└── mocks/
+└── ERC20Mock.sol
 
-Escrow functionality for physical products
+backend/
+├── main.py
+├── listener.py
+├── fraud_model.pkl
+├── requirements.txt
+└── uploads/
 
-Integration with X402 payment standard
+frontend/
+├── src/
+│ ├── components/
+│ ├── pages/
+│ ├── services/
+│ ├── store/
+│ ├── hooks/
+│ ├── abi/
+│ └── assets/
+│
+└── public/
 
-Role-based access control
+scripts/
+test/
+ignition/
 
-Platform fee deduction (configurable)
+.env
+hardhat.config.js
 
-2. ConfigManager.sol
-Dynamic platform settings
 
-Daily spending limits
+---
 
-Admin approval thresholds
+# 💡 Smart Contract Architecture
 
-Refund windows
+## Core Contracts
 
-Platform fee percentage
+### 1️⃣ CommerceCore.sol
 
-3. Roles.sol
-DEFAULT_ADMIN_ROLE - Full platform control
+Main platform contract responsible for:
 
-ADMIN_ROLE - Can approve orders, merchants, products
+- Order creation
+- Payment escrow
+- Order settlement
+- Platform fee deduction
+- Role-based permissions
 
-BOT_ROLE - On-chain bot for risk scoring
+---
 
-4. EscrowLogic.sol
-Daily spending limit tracking
+### 2️⃣ ConfigManager.sol
 
-Buyer activity monitoring
+Manages platform configuration:
 
-Order Flow
-text
-1. User connects wallet
-2. Selects product
-3. Smart contract checks:
-   - Daily limit
-   - Product type (Digital/Physical)
-   - Amount threshold
-4. USDC transferred to contract
-5. Order Status:
-   
-   DIGITAL + Small Amount → Auto Complete → Funds to Seller
-   DIGITAL + Large Amount → ESCROW_HOLD → Admin Review
-   PHYSICAL → ESCROW_HOLD → Admin/Manual Release
-   
-6. AI Bot (Listener) assigns risk score
-7. Admin approves/releases or rejects
-8. Platform fee automatically deducted
-🤖 AI Fraud Detection System
-How It Works
-On-chain Listener (listener.py) continuously monitors for OrderCreated events
+- Daily spending limits
+- Admin approval thresholds
+- Refund window duration
+- Platform fee percentage
 
-When new order detected, listener extracts:
+---
 
-Transaction amount
+### 3️⃣ Roles.sol
 
-Buyer/seller addresses
+Role-based access system.
 
-Product type
+| Role | Permission |
+|-----|-------------|
+| DEFAULT_ADMIN_ROLE | Full platform control |
+| ADMIN_ROLE | Merchant/product/order approvals |
+| BOT_ROLE | AI bot risk scoring |
 
-Sends transaction data to AI endpoint (/risk)
+---
 
-XGBoost model predicts fraud probability
+### 4️⃣ EscrowLogic.sol
 
-Risk score (0-100) assigned to order via setRiskScore()
+Handles:
 
-Based on score + product type:
+- Spending limit tracking
+- Buyer activity monitoring
+- Escrow release logic
 
-Low risk (<70) + Digital → Auto approve
+---
 
-High risk (≥70) + Digital → Manual review
+# 🔄 Order Flow
 
-All Physical → Manual review
 
-Model Details
-Algorithm: XGBoost Classifier
+User connects wallet
 
-Training Data: Credit card fraud dataset (PCA transformed)
+User selects product
 
-Features: 28 anonymized features + Time + Amount
+Smart contract validates:
 
-Output: Probability score → Scaled to 0-100 risk score
+daily spending limit
 
-🔐 Security Features
-ReentrancyGuard - Protection against reentrancy attacks
+product type
 
-Pausable - Emergency pause functionality
+amount threshold
 
-SafeERC20 - Safe token transfers
+USDC transferred to contract
 
-Role-Based Access - Granular permissions
 
-Daily Limits - Prevent excessive spending
+### Order Outcomes
 
-Escrow System - Funds held until confirmation
+| Scenario | Result |
+|--------|--------|
+| Digital + Small Amount | Auto Complete |
+| Digital + Large Amount | Escrow + Admin Review |
+| Physical Product | Escrow Hold |
 
-AI Risk Scoring - Real-time fraud detection
+---
 
-Multi-sig Style Approvals - Admin required for high-value/large transactions
+# 🤖 AI Fraud Detection
 
-🗄️ Database Schema
-Tables
-users
-wallet_address (Primary Key)
+## How It Works
 
-username (Unique)
+1️⃣ Smart contract emits **OrderCreated event**
 
-profile_image
+2️⃣ Event Listener detects the event
 
-created_at
+3️⃣ Transaction data sent to AI service
 
-merchants
-wallet_address (Primary Key)
+4️⃣ AI calculates fraud probability
 
-name, company_name, address, email
+5️⃣ Risk score assigned on-chain
 
-product_type
+---
 
-approved (Boolean)
+## Architecture
 
-created_at
 
-products
-id (Primary Key)
+Smart Contract
+│
+▼
+Event Listener
+(listener.py)
+│
+▼
+AI Service (/risk endpoint)
+│
+▼
+Risk Score Calculated
+│
+▼
+setRiskScore() Transaction
+│
+▼
+Auto Approval Logic
 
-wallet_address (Merchant)
 
-title, description, image_url
+---
 
-price, product_type
+# 🔐 Security Features
 
-download_link (For digital products)
+- ReentrancyGuard
+- Pausable contracts
+- SafeERC20 transfers
+- Role-based access control
+- Daily transaction limits
+- Escrow protection
+- AI fraud detection
+- Multi-admin approvals
 
-approved (Boolean)
+---
 
-created_at
+# 🗄 Database Schema
 
-orders
-id (Primary Key)
+### Users
 
-order_id_onchain (Unique)
+| Field | Description |
+|------|-------------|
+| wallet_address | Primary Key |
+| username | Unique |
+| profile_image | Optional |
+| created_at | Timestamp |
 
-buyer_wallet, seller_wallet
+---
 
-product_id
+### Merchants
 
-status, amount, risk_score
+| Field | Description |
+|------|-------------|
+| wallet_address | Primary Key |
+| name | Merchant Name |
+| company_name | Company |
+| approved | Boolean |
 
-tx_hash
+---
 
-created_at
+### Products
 
-messages
-id (Primary Key)
+| Field | Description |
+|------|-------------|
+| id | Primary Key |
+| wallet_address | Merchant |
+| title | Product name |
+| price | Product price |
+| product_type | Digital / Physical |
 
-sender_wallet, receiver_wallet
+---
 
-message, is_read
+### Orders
 
-created_at
+| Field | Description |
+|------|-------------|
+| id | Primary Key |
+| order_id_onchain | Unique |
+| buyer_wallet | Wallet |
+| seller_wallet | Wallet |
+| amount | Order value |
+| risk_score | Fraud score |
 
-platform_settings
-id (Single row)
+---
 
-daily_limit, admin_threshold, platform_fee_bps
+# 🧪 Deployment
 
-updated_at
+## SKALE Testnet Contracts
 
-🔄 On-chain/Off-chain Interaction
-Event Listener Flow
-text
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   Smart Contract │────▶│  Event Listener │────▶│   AI Service    │
-│  OrderCreated    │     │  (listener.py)  │     │   /risk endpoint│
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-                                 │                         │
-                                 ▼                         ▼
-                         ┌─────────────────┐     ┌─────────────────┐
-                         │   setRiskScore  │◀────│  Risk Score     │
-                         │  (Transaction)  │     │  Calculated     │
-                         └─────────────────┘     └─────────────────┘
-                                 │
-                                 ▼
-                    ┌─────────────────────────┐
-                    │ Auto Approve if:         │
-                    │ Digital + Low Risk       │
-                    └─────────────────────────┘
-🧪 Deployment
-SKALE Testnet Deployment
-bash
-# Contract Addresses (SKALE Testnet)
-CommerceCore: 0x78c37Dcb5C3C072DAfb9D4e28638BBcdf297FeeB
-USDC (Mock): 0x...
-X402: 0x...
-Environment Variables (.env)
-env
-# Blockchain
+
+CommerceCore
+0x78c37Dcb5C3C072DAfb9D4e28638BBcdf297FeeB
+
+
+---
+
+## Environment Variables
+
+
 PRIVATE_KEY=your_private_key
 RPC_URL=https://testnet.skale.network/
+
 COMMERCE_ADDRESS=0x78c37Dcb5C3C072DAfb9D4e28638BBcdf297FeeB
 
-# Database
 DATABASE_URL=postgresql://user:pass@localhost/skale_db
 
-# AI Service
 AI_URL=http://localhost:8000/risk
 
-# Admin
 ADMIN_WALLET=0xAb06a17af1425F499E302B639c69f8ce29a967E0
-🎯 Key Features Implemented
-✅ Wallet as Identity - No username/password
-✅ Digital Products - Instant delivery with download links
-✅ Physical Products - Escrow + Delivery confirmation
-✅ Merchant Registration - Admin approval workflow
-✅ AI Fraud Detection - Real-time risk scoring
-✅ On-chain Bot - Automated risk assignment
-✅ Platform Fees - Configurable fee percentage
-✅ Daily Limits - User spending caps
-✅ Chat System - Buyer-Seller communication
-✅ Admin Dashboard - Full platform control
-✅ Product Approval - Admin moderation
-✅ Image Uploads - Product images
-✅ Order History - Complete transaction records
-✅ Escrow Management - Release/Reject by admin
-✅ X402 Integration - Experimental payment standard
-✅ Multi-role Access - Admin, Bot, Default roles
-
-📊 Admin Capabilities
-Approve/Reject merchants
-
-Approve/Reject products
-
-Release/Reject escrowed orders
-
-Update platform settings (fees, limits, thresholds)
-
-View all users, merchants, products, orders
-
-Monitor platform statistics
-
-View all messages and support requests
-
-💬 Chat System
-Real-time messaging between:
-
-Buyers and Sellers (for delivery coordination)
-
-Users and Support
-
-Unread message indicators
-
-Conversation history
-
-Mark as read functionality
-
-🚧 Future Enhancements
-Multi-token support (ETH, SKL, other ERC20s)
-
-Decentralized delivery tracking
-
-Reputation system for sellers
-
-Dispute resolution mechanism
-
-Mobile app (React Native)
-
-More sophisticated AI model (deep learning)
-
-Batch order processing
-
-Subscription-based products
-
-NFT integration for digital goods
-
-DAO governance for platform settings
 
 
+---
 
+# 🎯 Features
 
-🏁 Conclusion
-Skale-dAPP represents a paradigm shift in e-commerce. By making wallet the primary identity, we eliminate account fatigue, reduce data leakage, and create a truly decentralized shopping experience. The integration of AI for fraud detection maintains security without compromising user privacy. Support for both digital and physical goods makes it practical for real-world use.
+### Platform
 
-The platform is production-ready on SKALE testnet and demonstrates how Web3 can solve real problems in e-commerce: privacy, security, and user experience.
+- Wallet as Identity
+- Digital product delivery
+- Physical product escrow
+- Merchant onboarding
+- Platform fee management
+- Admin dashboard
 
+### Security
 
-📞 Contact
-Email: mustakaalam10@gmail.com 
+- Fraud detection AI
+- Daily limits
+- Escrow protection
+- Role-based control
 
-Developer: Mustak Aalam
+### User Experience
 
-Live Demo: 
+- Product listings
+- Order history
+- Messaging system
+- Image uploads
 
-Built with ❤️ 
+---
 
+# 💬 Chat System
 
+Supports messaging between:
+
+- Buyer ↔ Seller
+- User ↔ Support
+
+Features include:
+
+- Unread indicators
+- Conversation history
+- Mark as read
+
+---
+
+# 🚧 Future Enhancements
+
+- Multi-token payments
+- Decentralized delivery tracking
+- Seller reputation system
+- Dispute resolution system
+- Mobile app (React Native)
+- DAO governance
+- NFT-based digital products
+
+---
+
+# 🏁 Conclusion
+
+Quilvion-dAPP represents a **paradigm shift in e-commerce**.
+
+By making **wallet the primary identity**, the platform:
+
+- Eliminates account fatigue
+- Reduces personal data exposure
+- Enables seamless Web3 commerce
+
+AI-driven fraud detection ensures **security without sacrificing decentralization**.
+
+---
+
+# 📞 Contact
+
+**Developer**
+
+Mustak Aalam
+
+📧 mustakaalam10@gmail.com
+
+🎥 Demo  
+https://youtu.be/Y8hazlUdoXQ
+
+---
+
+Built with ❤️
